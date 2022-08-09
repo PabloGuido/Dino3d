@@ -6,8 +6,7 @@ public class playerScr : MonoBehaviour
 {
     // [HideInInspector][SerializeField] public float numero;
     public CharacterController cc;
-    public float buttonTime = 0.3f;
-    float jumpTime;
+
     public float gravity;
     public float gravityScale;
     public float jumpHeight;
@@ -23,31 +22,12 @@ public class playerScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space)) 
+        if (cc.isGrounded && Input.GetKeyDown(KeyCode.Space) || cc.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
         {
-            jumpTime += Time.deltaTime;
-            Debug.Log("asd");
-        }
-        if (jumpTime > buttonTime)
-        {
-            jumpHeight = 4;
-            if (cc.isGrounded && Input.GetKeyDown(KeyCode.Space) || cc.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
-            {
             gravity = -20f;
             velocity = Mathf.Sqrt(jumpHeight * -2f * (gravity * gravityScale));
-                    jumpTime = 0;
-            }
-        }
-        // else{
-        //     jumpHeight = 2;
-        //     if (cc.isGrounded && Input.GetKeyDown(KeyCode.Space) || cc.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
-        //     {
-        //     gravity = -20f;
-        //     velocity = Mathf.Sqrt(jumpHeight * -2f * (gravity * gravityScale));
-        //             jumpTime = 0;
-        //     }
-        // }
 
+        }
         if (!cc.isGrounded && Input.GetKeyDown(KeyCode.DownArrow))
         {
             gravity = -120f;
@@ -56,6 +36,7 @@ public class playerScr : MonoBehaviour
         velocity += gravity * gravityScale * Time.deltaTime;
         MovePlayer();  
     }
+    
     void MovePlayer()
     {
         cc.Move(new Vector3(0, velocity, 0) * Time.deltaTime);
