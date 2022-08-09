@@ -7,7 +7,7 @@ public class playerColision : MonoBehaviour
     {
         //Output the Collider's GameObject's name
         // Debug.Log(collisionInfo.gameObject.tag);
-        Debug.Log(objectWithScript.numero);
+        Debug.Log(objectWithScript.gravity);
     }
 
 
