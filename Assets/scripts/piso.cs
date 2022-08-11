@@ -16,10 +16,7 @@ public class piso : MonoBehaviour
         objetos.Add(piso01);
         objetos.Add(piso02);
         // Debug.Log(objetos);
-        foreach(GameObject obj in objetos)
-        {
-            Debug.Log(obj.transform.position.x);
-        }
+
     }
 
     // Update is called once per frame
