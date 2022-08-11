@@ -6,11 +6,12 @@ public class piso : MonoBehaviour
 {
 
     [SerializeField] private List<GameObject> objetos;
-
+    GameObject piso01;
+    GameObject piso02;
     void Start()
     {
-        GameObject piso01 = GameObject.Find("piso01");
-        GameObject piso02 = GameObject.Find("piso02");
+        piso01 = GameObject.Find("piso01");
+        piso02 = GameObject.Find("piso02");
 
         objetos.Add(piso01);
         objetos.Add(piso02);
@@ -32,10 +33,21 @@ public class piso : MonoBehaviour
         //  }
         foreach(GameObject obj in objetos)
         {
+
             if (obj.transform.position.x <= -40){
-                obj.transform.position = new Vector3(39.95f,0,0);
+                // obj.transform.position = new Vector3(40f,0,0);
+                if (obj.name == "piso01"){
+                    obj.transform.position = new Vector3(piso02.transform.position.x+40f ,0,0);
+                }
+                else{
+                    obj.transform.position = new Vector3(piso01.transform.position.x+40f ,0,0);
+                }
             }
-            obj.transform.position = new Vector3(obj.transform.position.x-0.05f,0,0);
+            var vec = new Vector3(-12.5f,0,0);
+            obj.transform.Translate(vec * Time.deltaTime, Space.World);
+
+            // obj.transform.position = new Vector3(obj.transform.position.x-12f*Time.deltaTime,0,0);
+
             // Debug.Log(obj.transform.position.x);
         }
 
