@@ -8,7 +8,7 @@ public class piso : MonoBehaviour
     [SerializeField] private List<GameObject> objetos;
     GameObject piso01;
     GameObject piso02;
-    bool mover = true;
+    bool mover = false;
     void Start()
     {
         piso01 = GameObject.Find("piso01");
