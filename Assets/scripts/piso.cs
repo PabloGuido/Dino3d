@@ -8,7 +8,7 @@ public class piso : MonoBehaviour
     [SerializeField] private List<GameObject> objetos;
     GameObject piso01;
     GameObject piso02;
-    bool mover = false;
+    bool mover = true;
     void Start()
     {
         piso01 = GameObject.Find("piso01");
@@ -31,9 +31,11 @@ public class piso : MonoBehaviour
                     // obj.transform.position = new Vector3(40f,0,0);
                     if (obj.name == "piso01"){
                         obj.transform.position = new Vector3(piso02.transform.position.x+40f ,0,0);
+                        return;
                     }
                     else{
                         obj.transform.position = new Vector3(piso01.transform.position.x+40f ,0,0);
+                        return;
                     }
                 }
                 var vec = new Vector3(-12.5f,0,0);
