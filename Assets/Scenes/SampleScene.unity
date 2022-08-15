@@ -383,7 +383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetos: []
-  pisoUno: {fileID: 1604970648}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c56f2b3f6bbb441874cd474783427e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miSOScript: {fileID: 11400000, guid: fb8af3597ba8e314da7242fa78e4d20d, type: 2}
+  miSOScript: {fileID: 11400000, guid: 2be45c1dd74d1514286c4578d880d3e3, type: 2}
 --- !u!1001 &1604970647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -824,4 +823,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c56f2b3f6bbb441874cd474783427e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miSOScript: {fileID: 11400000, guid: fb8af3597ba8e314da7242fa78e4d20d, type: 2}
+  miSOScript: {fileID: 11400000, guid: 2be45c1dd74d1514286c4578d880d3e3, type: 2}

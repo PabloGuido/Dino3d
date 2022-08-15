@@ -12,11 +12,11 @@ public class miSO : ScriptableObject
 	private List<GameObject> obsGrandes = new List<GameObject>();
     public void OnEnable()
     {
-		if (listaObstaculos.Count != 0)
-		{
-			Debug.Log("La lista ya está cargada");
-			return;
-		}
+		// if (listaObstaculos.Count != 0) 
+		// {
+		// 	Debug.Log("La lista ya está cargada");
+		// 	return;
+		// }
 		var testTest = Resources.LoadAll<GameObject>("Targets/grandes");
 		for (int i = 0; i < testTest.Length; i++) 
 		{
@@ -25,9 +25,7 @@ public class miSO : ScriptableObject
 		listaObstaculos.Add(obsGrandes);
 		
 		// listaObstaculos.Add(obsChicos);
-        Debug.Log(testTest.Length);
+        Debug.Log("++ " + testTest.Length + " ++");
     }
-  
-	
 
 }
