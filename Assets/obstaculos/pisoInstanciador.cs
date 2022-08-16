@@ -11,23 +11,28 @@ public class pisoInstanciador : MonoBehaviour
     string nombreDeMiObstaculo; // Nombre del obstáculo child para buscarlo y eliminarlo cuando haga falta.
     Transform mi_obstaculo_child; // Nombre para referenciar al obstaculo child y acceder a su script para ejecutar Destroy();.
     private bool hay_un_obstaculo = false; // Variable que sirve para crear el primer obstáculo.
+    List<float> offset_obstaculos = new List<float>{1.7f,1.4f}; // Este offset es para poner los obstáculos chicos o grandes sobre el piso.
+
     // Start is called before the first frame update
     void Start()
     {
+        // ↓ Busca el pisoHolder y su script para accedar a las tablas de obstáculos.
         pisoHolder = GameObject.Find("pisoHolder");        
         pisoScript = pisoHolder.GetComponent<Piso>();
+
     }
 
     void crear_obstaculo()
     {
-        
-        GameObject miPrefab = pisoScript.miSOScript.listaObstaculos[0][Random.Range(0, 3)]; //--<1>        
-        Vector3 miPos = new Vector3(this.transform.position.x, this.transform.position.y + 1.7f,this.transform.position.z); //--<2>    
+        int random_chico_grande = Random.Range(0, 2); //--<0> 
+        GameObject miPrefab = pisoScript.miSOScript.listaObstaculos[random_chico_grande][Random.Range(0, 3)]; //--<1> 
+        Vector3 miPos = new Vector3(this.transform.position.x, this.transform.position.y + offset_obstaculos[random_chico_grande],this.transform.position.z); //--<2>    
         GameObject miObstaculo = Instantiate(miPrefab, miPos, Quaternion.identity); //--<3>       
         nombreDeMiObstaculo = miObstaculo.name; //--<4>         
         miObstaculo.transform.SetParent(gameObject.transform); //--<5>         
         miObstaculo.transform.GetChild(0).GetComponent<SpriteRenderer>().transform.eulerAngles = new Vector3(0,12.108f,0); //--<6>  
 
+        //<0> ↓ Genera número random para crear obstáculos chicos o grandes.
         //<1> ↓ Buscar un prefab random de la lista para crear.
         //<2> ↓ Actualiza la pos para pasarsela a la instancia.
         //<3> ↓ Se crea la instancia.
@@ -49,7 +54,7 @@ public class pisoInstanciador : MonoBehaviour
         // ↓ Busca el obstáculo child por medio de su nombre y lo elimina.
         mi_obstaculo_child = gameObject.transform.Find(nombreDeMiObstaculo);
         mi_obstaculo_child.GetComponent<obstaculo>().destruir_obstaculo();
-        
+
         // ↓ Crea un obstáculo nuevo.
         crear_obstaculo();
         
