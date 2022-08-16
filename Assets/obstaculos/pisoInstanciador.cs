@@ -10,15 +10,16 @@ public class pisoInstanciador : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        crear_obstaculo();
+        
         // Debug.Log(nombreDeMiObstaculo);
-
+        miSOScript = (miSO)ScriptableObject.CreateInstance(typeof(miSO));
+        crear_obstaculo();
     }
 
     void crear_obstaculo()
     {
         // Debug.Log(miSOScript.listaObstaculos[0][0]);
-        GameObject miPrefab = miSOScript.listaObstaculos[0][0];
+        GameObject miPrefab = miSOScript.listaObstaculos[0][Random.Range(0, 3)];
         Vector3 miPos = new Vector3(this.transform.position.x, this.transform.position.y + 1.7f,this.transform.position.z);
         GameObject miObstaculo = Instantiate(miPrefab, miPos, Quaternion.Euler(0,12.108f,0));
         nombreDeMiObstaculo = miObstaculo.name;

@@ -10,22 +10,36 @@ public class miSO : ScriptableObject
 	public List<List<GameObject>> listaObstaculos = new List<List<GameObject>>();
 	private List<GameObject> obsChicos = new List<GameObject>();
 	private List<GameObject> obsGrandes = new List<GameObject>();
-    public void OnEnable()
-    {
-		// if (listaObstaculos.Count != 0) 
+  //   public void OnEnable()
+  //   {
+		// // if (listaObstaculos.Count != 0) 
+		// // {
+		// // 	Debug.Log("La lista ya está cargada");
+		// // 	return;
+		// // }
+		// var testTest = Resources.LoadAll<GameObject>("Targets/grandes");
+		// for (int i = 0; i < testTest.Length; i++) 
 		// {
-		// 	Debug.Log("La lista ya está cargada");
-		// 	return;
+		// 	obsGrandes.Add(testTest[i]);
 		// }
-		var testTest = Resources.LoadAll<GameObject>("Targets/grandes");
-		for (int i = 0; i < testTest.Length; i++) 
-		{
-			obsGrandes.Add(testTest[i]);
-		}
-		listaObstaculos.Add(obsGrandes);
+		// listaObstaculos.Add(obsGrandes);
 		
-		// listaObstaculos.Add(obsChicos);
-        Debug.Log("++ " + testTest.Length + " ++");
+		// // listaObstaculos.Add(obsChicos);
+  //       Debug.Log("++ " + testTest.Length + " ++");
+  //   }
+    public void Awake()
+    {
+    	if (listaObstaculos.Count == 0)
+    	{
+			var testTest = Resources.LoadAll<GameObject>("Targets/grandes");
+			for (int i = 0; i < testTest.Length; i++) 
+			{
+				obsGrandes.Add(testTest[i]);
+			}
+			listaObstaculos.Add(obsGrandes);
+			
+			// listaObstaculos.Add(obsChicos);
+	        Debug.Log("++ " + testTest.Length + " ++");
+	    }
     }
-
 }

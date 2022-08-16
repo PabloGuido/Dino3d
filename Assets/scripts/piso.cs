@@ -9,7 +9,7 @@ public class piso : MonoBehaviour
 
     GameObject piso01;
     GameObject piso02;
-    bool mover = false;
+    public bool mover;
     void Start()
     {
         piso01 = GameObject.Find("piso01");
