@@ -414,6 +414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetos: []
+  miSOScript: {fileID: 11400000, guid: fb8af3597ba8e314da7242fa78e4d20d, type: 2}
+  mover: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

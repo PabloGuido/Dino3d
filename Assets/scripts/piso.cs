@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class piso : MonoBehaviour
+public class Piso : MonoBehaviour
 {
 
     [SerializeField] private List<GameObject> objetos;
+    public miSO miSOScript;
 
     GameObject piso01;
     GameObject piso02;
-    public bool mover;
+    bool mover = true;
     void Start()
     {
+        miSOScript = (miSO)ScriptableObject.CreateInstance(typeof(miSO));
         piso01 = GameObject.Find("piso01");
         piso02 = GameObject.Find("piso02");
 

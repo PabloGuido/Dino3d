@@ -4,36 +4,52 @@ using UnityEngine;
 
 public class pisoInstanciador : MonoBehaviour
 {
-    public miSO miSOScript;
-    private Vector3 miPos;
-    string nombreDeMiObstaculo;
+    // public miSO miSOScript;
+    GameObject pisoHolder; // Es el objeto que tiene el script con las tablas de obstaculos.
+    Piso pisoScript; // Es el script del objeto pisoHolder.
+    private Vector3 miPos; // Mi posicion para pasar al child.
+    string nombreDeMiObstaculo; // Nombre del obstáculo child para buscarlo y eliminarlo cuando haga falta.
+    Transform mi_obstaculo_child; // Nombre para referenciar al obstaculo child y acceder a su script para ejecutar Destroy();.
+    private bool hay_un_obstaculo = false; // Variable que sirve para crear el primer obstáculo.
     // Start is called before the first frame update
     void Start()
     {
-        
-        // Debug.Log(nombreDeMiObstaculo);
-        miSOScript = (miSO)ScriptableObject.CreateInstance(typeof(miSO));
-        crear_obstaculo();
+        pisoHolder = GameObject.Find("pisoHolder");        
+        pisoScript = pisoHolder.GetComponent<Piso>();
     }
 
     void crear_obstaculo()
     {
-        // Debug.Log(miSOScript.listaObstaculos[0][0]);
-        GameObject miPrefab = miSOScript.listaObstaculos[0][Random.Range(0, 3)];
-        Vector3 miPos = new Vector3(this.transform.position.x, this.transform.position.y + 1.7f,this.transform.position.z);
-        GameObject miObstaculo = Instantiate(miPrefab, miPos, Quaternion.Euler(0,12.108f,0));
-        nombreDeMiObstaculo = miObstaculo.name;
-        miObstaculo.transform.SetParent(gameObject.transform);
+        
+        GameObject miPrefab = pisoScript.miSOScript.listaObstaculos[0][Random.Range(0, 3)]; //--<1>        
+        Vector3 miPos = new Vector3(this.transform.position.x, this.transform.position.y + 1.7f,this.transform.position.z); //--<2>    
+        GameObject miObstaculo = Instantiate(miPrefab, miPos, Quaternion.identity); //--<3>       
+        nombreDeMiObstaculo = miObstaculo.name; //--<4>         
+        miObstaculo.transform.SetParent(gameObject.transform); //--<5>         
+        miObstaculo.transform.GetChild(0).GetComponent<SpriteRenderer>().transform.eulerAngles = new Vector3(0,12.108f,0); //--<6>  
+
+        //<1> ↓ Buscar un prefab random de la lista para crear.
+        //<2> ↓ Actualiza la pos para pasarsela a la instancia.
+        //<3> ↓ Se crea la instancia.
+        //<4> ↓ Se guarda el nombre la instancia creada.
+        //<5> ↓ Se le asigna parent a la instancia.
+        //<6> ↓ Se modifica la rotación del sprite de la instancia para que mire directo a la cámara.
+
     }
     public void refrescarObstaculo()
     {
         // ↓↓ Busca el obstáculo child por medio de su nombre y si existe lo elimina.
-        Transform mi_obstaculo_child = gameObject.transform.Find(nombreDeMiObstaculo);
-        if (mi_obstaculo_child)
+
+        if (!hay_un_obstaculo)
         {
-            mi_obstaculo_child.GetComponent<obstaculo>().destruir_obstaculo();
             crear_obstaculo();
+            hay_un_obstaculo = true;
+            return;
         }
+        mi_obstaculo_child = gameObject.transform.Find(nombreDeMiObstaculo);
+        mi_obstaculo_child.GetComponent<obstaculo>().destruir_obstaculo();
+        crear_obstaculo();
+        
     }
 
 }
