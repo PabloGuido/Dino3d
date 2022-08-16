@@ -37,20 +37,21 @@ public class pisoInstanciador : MonoBehaviour
 
     }
     public void refrescarObstaculo()
-    {
-        // ↓↓ Busca el obstáculo child por medio de su nombre y si existe lo elimina.
-
+    {       
+        // ↓ Esta comparación es para crear el primer obstáculo.
         if (!hay_un_obstaculo)
         {
             crear_obstaculo();
             hay_un_obstaculo = true;
             return;
         }
+
+        // ↓ Busca el obstáculo child por medio de su nombre y lo elimina.
         mi_obstaculo_child = gameObject.transform.Find(nombreDeMiObstaculo);
         mi_obstaculo_child.GetComponent<obstaculo>().destruir_obstaculo();
+        
+        // ↓ Crea un obstáculo nuevo.
         crear_obstaculo();
         
     }
-
 }
-// Debug.Log("funcionDePrueba " + Random.Range(-10.0f, 10.0f));
