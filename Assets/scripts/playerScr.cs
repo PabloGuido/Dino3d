@@ -12,10 +12,11 @@ public class playerScr : MonoBehaviour
     public float jumpHeight;
     float velocity;
 
+
     // Transform dino2dChild;
-    public Animator animator;
-    public SpriteRenderer sprite_idle;
-    public Sprite mi_sprite_idle;
+    Animator animator;
+    SpriteRenderer sprite_idle;
+    Sprite mi_sprite_idle;
 
     // 
     public Datos datos;
@@ -45,11 +46,7 @@ public class playerScr : MonoBehaviour
         {
             if (cc.isGrounded && Input.GetKeyDown(KeyCode.Space) || cc.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
             {
-                gravity = -20f;
-                velocity = Mathf.Sqrt(jumpHeight * -2f * (gravity * gravityScale));
-                animator.enabled = false;
-                sprite_idle.sprite = mi_sprite_idle;
-
+                salto_player();
             }
             if (!cc.isGrounded && Input.GetKeyDown(KeyCode.DownArrow))
             {
@@ -62,18 +59,38 @@ public class playerScr : MonoBehaviour
             {
                 animator.enabled = true;
             }
-        
+            return;
         }
-        if (Input.GetKeyDown(KeyCode.A))
+      if (Input.GetKeyDown(KeyCode.Space))
         {
-            datos.game_over = false;
-        }
+            // Debug.Log("Primer salto.");
+            salto_player();
+            Invoke("comenzar_el_juego", 0.5f);
 
+        }  
+        velocity += gravity * gravityScale * Time.deltaTime;
+        MovePlayer();
     }
     
     void MovePlayer()
     {
         cc.Move(new Vector3(0, velocity, 0) * Time.deltaTime);
 
+    }
+    void salto_player()
+    {
+        gravity = -20f;
+        velocity = Mathf.Sqrt(jumpHeight * -2f * (gravity * gravityScale));
+        animator.enabled = false;
+        sprite_idle.sprite = mi_sprite_idle;
+    }
+
+    void comenzar_el_juego()
+    {
+
+        datos.game_over = false;
+
+        
+        
     }
 }
