@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f3862bcfb1dd35e45a54f47bc0ee6f52
+guid: 1012f59d4b3fafc4eb06f2fc7fa34faa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -116,12 +116,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dino_idle_0
+      name: dino_run_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 86
+        width: 84
         height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -130,8 +130,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 063e0bf153b92dc4789089d97f4dbc30
-      internalID: -1344543191
+      spriteID: a9949e7bb265d264e83bc95bb9523c1f
+      internalID: 2002480308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dino_run_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 84
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3b3da7b0a84c64d86a0c1811db5b73
+      internalID: 938929174
       vertices: []
       indices: 
       edges: []
@@ -139,7 +160,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 945cc8722a93bbe49a56adf3e6526bec
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +168,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dino_idle_0: -1344543191
+      dino_run_1: 938929174
+      dino_run_0: 2002480308
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
