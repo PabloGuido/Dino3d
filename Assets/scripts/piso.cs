@@ -10,7 +10,8 @@ public class Piso : MonoBehaviour
 
     GameObject piso01;
     GameObject piso02;
-    bool mover = true;
+
+    public Datos datos;
     void Start()
     {
         miSOScript = (miSO)ScriptableObject.CreateInstance(typeof(miSO));
@@ -19,14 +20,15 @@ public class Piso : MonoBehaviour
 
         objetos.Add(piso01);
         objetos.Add(piso02);
-        // Debug.Log(objetos);
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mover){
+        if (!datos.game_over)
+        {
             foreach(GameObject obj in objetos)
             {
 

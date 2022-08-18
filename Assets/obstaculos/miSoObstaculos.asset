@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01dc0e3914551c148b6bf24f107d5879, type: 3}
   m_Name: miSoObstaculos
   m_EditorClassIdentifier: 
+  game_over: 0

@@ -11,6 +11,7 @@ public class miSO : ScriptableObject
 
     public void Awake()
     {
+
     	if (listaObstaculos.Count == 0) // Si la lista de obstáculos está vacía cargar los recursos.
     	{
     		// Carga los recursos que están en el editor y los agrega a su respectiva tabla de chico ó grande y luego a la lista de listas.
@@ -32,5 +33,6 @@ public class miSO : ScriptableObject
 			
 	        // Debug.Log("++ " + carga_obs_chicos.Length + " ++");
 	    }
+	    
     }
 }
