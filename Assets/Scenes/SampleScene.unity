@@ -596,9 +596,6 @@ MonoBehaviour:
   gravity: -20
   gravityScale: 3
   jumpHeight: 4
-  animator: {fileID: 0}
-  sprite_idle: {fileID: 0}
-  mi_sprite_idle: {fileID: 0}
   datos: {fileID: 1214400471}
 --- !u!143 &1119654524
 CharacterController:
