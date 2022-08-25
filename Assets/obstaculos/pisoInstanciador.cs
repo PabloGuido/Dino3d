@@ -11,15 +11,19 @@ public class pisoInstanciador : MonoBehaviour
     string nombreDeMiObstaculo; // Nombre del obstáculo child para buscarlo y eliminarlo cuando haga falta.
     Transform mi_obstaculo_child; // Nombre para referenciar al obstaculo child y acceder a su script para ejecutar Destroy();.
     private bool hay_un_obstaculo = false; // Variable que sirve para crear el primer obstáculo.
-    List<float> offset_obstaculos = new List<float>{2.03f+0.22f,1.744f+0.22f}; // Este offset es para poner los obstáculos chicos o grandes sobre el piso.
+    List<float> offset_obstaculos = new List<float>{1f,1f}; // Este offset es para poner los obstáculos chicos o grandes sobre el piso.
     // Los primers son los grandes los segundos los chicos.
+
     // Start is called before the first frame update
     void Start()
     {
         // ↓ Busca el pisoHolder y su script para accedar a las tablas de obstáculos.
         pisoHolder = GameObject.Find("pisoHolder");        
         pisoScript = pisoHolder.GetComponent<Piso>();
-
+        // 
+        var r = GetComponent<Renderer>();
+        var bounds = r.localBounds;
+        // Debug.Log(bounds.extents.y);
     }
 
     void crear_obstaculo()
