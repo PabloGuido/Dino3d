@@ -35,13 +35,13 @@ public class Piso : MonoBehaviour
                 if (obj.transform.position.x <= -40){
                     // obj.transform.position = new Vector3(40f,0,0);
                     if (obj.name == "piso01"){
-                        obj.transform.position = new Vector3(piso02.transform.position.x+40f ,0,0);
+                        obj.transform.position = new Vector3(piso02.transform.position.x+40f ,-0.4f,0);
                         obj.GetComponent<pisoInstanciador>().refrescarObstaculo();
                         // test.funcionDePrueba();
                         return;
                     }
                     else{
-                        obj.transform.position = new Vector3(piso01.transform.position.x+40f ,0,0);
+                        obj.transform.position = new Vector3(piso01.transform.position.x+40f ,-0.4f,0);
                         // obj.funcionDePrueba();
                         obj.GetComponent<pisoInstanciador>().refrescarObstaculo();
                         return;
