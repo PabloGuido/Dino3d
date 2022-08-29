@@ -11,6 +11,7 @@ public class playerScr : MonoBehaviour
     public float gravityScale;
     public float jumpHeight;
     float velocity;
+    private bool primer_salto = true;
 
 
     // Transform dino2dChild;
@@ -61,15 +62,20 @@ public class playerScr : MonoBehaviour
             }
             return;
         }
-      if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space) && primer_salto == true)
         {
             // Debug.Log("Primer salto.");
+            primer_salto = false;
             salto_player();
             Invoke("comenzar_el_juego", 0.5f);
 
         }  
-        velocity += gravity * gravityScale * Time.deltaTime;
-        MovePlayer();
+        if (datos.primer_salto == true)
+        {
+            velocity += gravity * gravityScale * Time.deltaTime;
+            MovePlayer();
+        }
     }
     
     void MovePlayer()
@@ -89,8 +95,7 @@ public class playerScr : MonoBehaviour
     {
 
         datos.game_over = false;
-
-        
+        datos.primer_salto = false;
         
     }
 }
