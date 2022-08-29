@@ -25,7 +25,7 @@ public class Piso : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!datos.game_over)
         {

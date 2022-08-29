@@ -76,6 +76,7 @@ public class playerScr : MonoBehaviour
             velocity += gravity * gravityScale * Time.deltaTime;
             MovePlayer();
         }
+        animator.enabled = false; // cancela la animación cuando el player perdió.
     }
     
     void MovePlayer()
