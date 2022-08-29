@@ -8,7 +8,7 @@ public class playerColision : MonoBehaviour
     {
         if (collisionInfo.tag == "obstaculo")
         {
-            // datos.game_over = true;
+            datos.game_over = true;
             Debug.Log("~~~ Game Over ~~~");
         }
     }
