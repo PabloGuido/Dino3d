@@ -3,20 +3,14 @@ using UnityEngine;
 public class playerColision : MonoBehaviour
 {
     public playerScr objectWithScript;
-    // void OnCollisionEnter(Collision collisionInfo)
-    // {
-    //     //Output the Collider's GameObject's name
-    //     Debug.Log(collisionInfo.gameObject.tag);
-
-    // }
-    void FixedUpdate()
+    public Datos datos;
+    void OnTriggerEnter(Collider collisionInfo)
     {
-
-    }
-
-        void OnTriggerEnter(Collider collisionInfo)
+        if (collisionInfo.tag == "obstaculo")
         {
-        Debug.Log(collisionInfo.gameObject.tag);
+            datos.game_over = true;
+            Debug.Log("~~~ Game Over ~~~");
         }
+    }
 
 }
