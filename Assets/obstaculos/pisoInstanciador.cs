@@ -29,7 +29,8 @@ public class pisoInstanciador : MonoBehaviour
     void crear_obstaculo()
     {
         int random_chico_grande = Random.Range(0, 2); //--<0> 
-        GameObject miPrefab = pisoScript.miSOScript.listaObstaculos[0][0]; //--<1> 
+        // GameObject miPrefab = pisoScript.miSOScript.listaObstaculos[random_chico_grande][Random.Range(0, 3)]; //--<1> 
+        GameObject miPrefab = pisoScript.miSOScript.listaObstaculos[0][2]; //--<1> 
         Vector3 miPos = new Vector3(this.transform.position.x, this.transform.position.y + offset_obstaculos[random_chico_grande],this.transform.position.z); //--<2>    
         GameObject miObstaculo = Instantiate(miPrefab, miPos, Quaternion.identity); //--<3>       
         nombreDeMiObstaculo = miObstaculo.name; //--<4>         

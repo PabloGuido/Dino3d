@@ -63,7 +63,7 @@ public class playerScr : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && primer_salto == true)
+        if (Input.GetKeyDown(KeyCode.Space) && primer_salto == true || Input.GetKeyDown(KeyCode.UpArrow) && primer_salto == true)
         {
             // Debug.Log("Primer salto.");
             primer_salto = false;
