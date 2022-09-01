@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class Datos : MonoBehaviour
 {
+
     public bool game_over = true;
     public bool primer_salto = true;
+
+    // Cuenta para crear aves
+    public int random_ave;
+    public int cuenta_ave;
+    void Start()
+    {
+        nuevo_random_ave();
+    }
+    public void nuevo_random_ave()
+    {
+        cuenta_ave = 0;
+        random_ave = Random.Range(1, 4);
+    }
 }

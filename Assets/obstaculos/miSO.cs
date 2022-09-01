@@ -8,6 +8,7 @@ public class miSO : ScriptableObject
 	public List<List<GameObject>> listaObstaculos = new List<List<GameObject>>(); // Lista de lista de obstáctulos para varian entre grandes y chicos.
 	private List<GameObject> obsChicos = new List<GameObject>(); // Lista de los obstáculos chicos.
 	private List<GameObject> obsGrandes = new List<GameObject>(); // Lista de los obstáculos grandes.
+	private List<GameObject> obsAve = new List<GameObject>(); // Lista de la ave.
 
     public void Awake()
     {
@@ -30,8 +31,16 @@ public class miSO : ScriptableObject
 				obsChicos.Add(carga_obs_chicos[i]);
 			}
 			listaObstaculos.Add(obsChicos);
-			
-	        // Debug.Log("++ " + carga_obs_chicos.Length + " ++");
+
+			// ↓ Obs ave.
+			var carga_obs_ave = Resources.LoadAll<GameObject>("Targets/ave");
+			for (int i = 0; i < carga_obs_ave.Length; i++) 
+			{
+				obsAve.Add(carga_obs_ave[i]);
+			}
+			listaObstaculos.Add(obsAve);
+			// Debug.Log(obsAve.Count);
+
 	    }
 	    
     }

@@ -592,7 +592,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.55
-  m_Center: {x: -0.2, y: -0.5, z: 0}
+  m_Center: {x: -0.3, y: -0.5, z: 0}
 --- !u!1 &1214400470
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +624,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game_over: 1
   primer_salto: 1
+  random_ave: 0
+  cuenta_ave: 0
 --- !u!4 &1214400472
 Transform:
   m_ObjectHideFlags: 0
@@ -818,6 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c56f2b3f6bbb441874cd474783427e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  datos: {fileID: 1214400471}
 --- !u!4 &1859626909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f02403b39a495b045985ddb6d94b5d29, type: 3}
@@ -902,3 +905,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c56f2b3f6bbb441874cd474783427e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  datos: {fileID: 1214400471}
