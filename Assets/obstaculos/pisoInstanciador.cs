@@ -36,7 +36,7 @@ public class pisoInstanciador : MonoBehaviour
             // Debug.Log(datos.cuenta_ave);
             miPrefab = pisoScript.miSOScript.listaObstaculos[2][0];
             datos.nuevo_random_ave();
-            Debug.Log(datos.random_ave);
+            // Debug.Log(datos.random_ave);
             miPos = new Vector3(this.transform.position.x, this.transform.position.y + offset_obstaculos_ave[Random.Range(0, 3)],this.transform.position.z); //--<2>  
         }
         else

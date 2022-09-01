@@ -19,5 +19,6 @@ public class Datos : MonoBehaviour
     {
         cuenta_ave = 0;
         random_ave = Random.Range(7, 12);
+        // random_ave = Random.Range(0, 5);
     }
 }
