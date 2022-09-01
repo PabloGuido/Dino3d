@@ -10,7 +10,7 @@ public class Piso : MonoBehaviour
 
     GameObject piso01;
     GameObject piso02;
-
+    float velocidad = -12.5f;
     public Datos datos;
     void Start()
     {
@@ -25,7 +25,7 @@ public class Piso : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (!datos.game_over)
         {
@@ -47,9 +47,9 @@ public class Piso : MonoBehaviour
                         return;
                     }
                 }
-                var vec = new Vector3(-12.5f,0,0);
+                var vec = new Vector3(velocidad,0,0);
                 obj.transform.Translate(vec * Time.deltaTime, Space.World);
-                // Antes estaba usando solo el transform y moviendo pero se cambió a Translate.
+                // Antes estaba usando solo el transform y moviendo pero se cambió a Translate. 
             }
         }
     }

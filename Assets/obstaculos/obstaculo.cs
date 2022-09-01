@@ -8,4 +8,5 @@ public class obstaculo : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }

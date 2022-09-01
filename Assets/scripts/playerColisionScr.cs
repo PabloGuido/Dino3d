@@ -6,26 +6,18 @@ public class playerColisionScr : MonoBehaviour
     public Datos datos;
     
     public bool isGrounded = true;
+    Animator animator;
     void OnTriggerEnter(Collider collisionInfo)
     {
         if (collisionInfo.tag == "obstaculo")
         {
             datos.game_over = true;
-            Debug.Log("~~~ Game Over ~~~");
-        }
-        if (collisionInfo.tag == "piso")
-        {
-            isGrounded = true;
-            Debug.Log("~~~ Piso in ~~~");
-        }
-    }
-    void OnTriggerExit(Collider collisionInfo)
-    {
-        if (collisionInfo.tag == "piso")
-        {
-            isGrounded = false;
-            Debug.Log("~~~ Piso out~~~");
+            if (collisionInfo.transform.parent.GetChild(0).GetComponent<Animator>()) // Detiene la animación de las aves en game over.
+            {
+                animator = collisionInfo.transform.parent.GetChild(0).GetComponent<Animator>();
+                animator.enabled = false;
+            }
+            Debug.Log("~~~ Game Over ~~~");            
         }
     }
-
 }
