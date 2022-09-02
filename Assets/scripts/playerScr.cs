@@ -63,12 +63,12 @@ public class playerScr : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && primer_salto == true || Input.GetKeyDown(KeyCode.UpArrow) && primer_salto == true)
+        if (Input.GetKeyDown(KeyCode.Space) && primer_salto || Input.GetKeyDown(KeyCode.UpArrow) && primer_salto)
         {
-            // Debug.Log("Primer salto.");
+            Debug.Log("Primer salto.");
             primer_salto = false;
             salto_player();
-            Invoke("comenzar_el_juego", 0.5f);
+            Invoke("comenzar_el_juego", 0.5f); // Cambia el estado de game over y primer salto en datos.
 
         }  
         if (datos.primer_salto == true)
@@ -77,6 +77,10 @@ public class playerScr : MonoBehaviour
             MovePlayer();
         }
         animator.enabled = false; // cancela la animación cuando el player perdió.
+        if (datos.restart_game && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Restart game");
+        }
     }
     
     void MovePlayer()

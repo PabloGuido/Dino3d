@@ -7,7 +7,7 @@ public class Datos : MonoBehaviour
 
     public bool game_over = true;
     public bool primer_salto = true;
-
+    public bool restart_game = false;
     // Cuenta para crear aves
     public int random_ave;
     public int cuenta_ave;

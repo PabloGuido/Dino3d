@@ -12,12 +12,19 @@ public class playerColisionScr : MonoBehaviour
         if (collisionInfo.tag == "obstaculo")
         {
             datos.game_over = true;
+            Invoke("cambiar_estado_de_restart", 1f);
             if (collisionInfo.transform.parent.GetChild(0).GetComponent<Animator>()) // Detiene la animación de las aves en game over.
             {
                 animator = collisionInfo.transform.parent.GetChild(0).GetComponent<Animator>();
                 animator.enabled = false;
             }
-            Debug.Log("~~~ Game Over ~~~");            
+            Debug.Log("~~~ Game Over ~~~");
+            
         }
+    }
+
+    void cambiar_estado_de_restart()
+    {
+        datos.restart_game = true;
     }
 }
