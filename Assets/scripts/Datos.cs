@@ -14,6 +14,7 @@ public class Datos : MonoBehaviour
     void OnEnable()
     {
         playerScr.Restart_Game += subscripccion;
+        
     }
     void OnDisable()
     {

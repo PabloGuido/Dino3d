@@ -12,7 +12,7 @@ public class playerScr : MonoBehaviour
     public float jumpHeight;
     float velocity;
     private bool primer_salto = true;
-    Vector3 posicion_inicial = new Vector3(-9.66f, 1.62f, 0);
+    Vector3 posicion_inicial = new Vector3(-7.59f, 1.62f, 0);
 
     // Transform dino2dChild;
     Animator animator;
@@ -121,9 +121,9 @@ public class playerScr : MonoBehaviour
 
     void restart_player()
     {
+        sprite_idle.enabled = false;
         gameObject.transform.position = posicion_inicial;
-        // datos.primer_salto = true;
-
+        sprite_idle.enabled = true;
         Debug.Log("restart_player");
     }
 }
