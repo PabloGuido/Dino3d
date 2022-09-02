@@ -14,10 +14,23 @@ public class pisoInstanciador : MonoBehaviour
     List<float> offset_obstaculos = new List<float>{1f,1f}; // Este offset es para poner los obstáculos chicos o grandes sobre el piso. Los primers son los grandes los segundos los chicos.
     List<float> offset_obstaculos_ave = new List<float>{1f,1.9f,3.75f}; // El offset para la altura de las aves.
     GameObject miPrefab; // La variable del prefab.
+    Vector3 posicion_inicial;
 
+    // Evnto restart game
+    void OnEnable()
+    {
+        playerScr.Restart_Game += restart_pisos;
+    }
+    void OnDisable()
+    {
+        playerScr.Restart_Game -= restart_pisos;
+    }
     // Start is called before the first frame update
     void Start()
     {
+        // ↓ Guarda la posición inicial del piso para el restart.
+        posicion_inicial = gameObject.transform.position;
+        // Debug.Log(posicion_inicial);
         // ↓ Busca el pisoHolder y su script para accedar a las tablas de obstáculos.
         pisoHolder = GameObject.Find("pisoHolder");        
         pisoScript = pisoHolder.GetComponent<Piso>();
@@ -75,7 +88,18 @@ public class pisoInstanciador : MonoBehaviour
         mi_obstaculo_child.GetComponent<obstaculo>().destruir_obstaculo();
 
         // ↓ Crea un obstáculo nuevo.
-        crear_obstaculo();
-        
+        crear_obstaculo();        
+    }
+
+    void restart_pisos()
+    {
+        // ↓ Busca el obstáculo child por medio de su nombre y lo elimina.
+        if (hay_un_obstaculo)
+        {
+            mi_obstaculo_child = gameObject.transform.Find(nombreDeMiObstaculo);
+            mi_obstaculo_child.GetComponent<obstaculo>().destruir_obstaculo();
+        }
+        hay_un_obstaculo = false;
+        gameObject.transform.position = posicion_inicial;
     }
 }

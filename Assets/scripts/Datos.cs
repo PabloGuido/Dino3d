@@ -31,6 +31,8 @@ public class Datos : MonoBehaviour
     }
     void subscripccion()
     {
-        Debug.Log("objeto subscripto al evento.");
+        restart_game = false;
+        game_over = false;
+        Debug.Log("Restaurando Datos.");
     }
 }
