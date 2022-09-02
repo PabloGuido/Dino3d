@@ -11,6 +11,14 @@ public class Datos : MonoBehaviour
     // Cuenta para crear aves
     public int random_ave;
     public int cuenta_ave;
+    void OnEnable()
+    {
+        playerScr.Restart_Game += subscripccion;
+    }
+    void OnDisable()
+    {
+        playerScr.Restart_Game -= subscripccion;
+    }
     void Start()
     {
         nuevo_random_ave();
@@ -20,5 +28,9 @@ public class Datos : MonoBehaviour
         cuenta_ave = 0;
         random_ave = Random.Range(7, 12);
         // random_ave = Random.Range(0, 5);
+    }
+    void subscripccion()
+    {
+        Debug.Log("objeto subscripto al evento.");
     }
 }

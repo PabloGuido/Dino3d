@@ -19,6 +19,10 @@ public class playerScr : MonoBehaviour
     SpriteRenderer sprite_idle;
     Sprite mi_sprite_idle;
 
+    // Evento restart
+    public delegate void Evento_restart();
+    public static event Evento_restart Restart_Game;
+
     // 
     public Datos datos;
     // Start is called before the first frame update
@@ -80,6 +84,7 @@ public class playerScr : MonoBehaviour
         if (datos.restart_game && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Restart game");
+            Restart_Game();
         }
     }
     
