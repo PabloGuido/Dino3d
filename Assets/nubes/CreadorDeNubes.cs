@@ -39,14 +39,7 @@ public class CreadorDeNubes : MonoBehaviour
                     obj_nube.transform.Translate(vec * Time.deltaTime, Space.World);
                     if (obj_nube.transform.position.x < -17.5f)
                     {
-                        // obj_nube.Destruir_nube();
-                        // int index = nubecitas.IndexOf(obj_nube);
-                        
                         nube_a_remover = obj_nube;
-                        // obj_nube.GetComponent<Nube>().Destruir_nube();
-                        // int index = nubecitas.IndexOf(obj_nube);
-                        // Debug.Log(index);
-                        // nubecitas.RemoveAt(index);
                     }
                 }
                 if (nube_a_remover)
