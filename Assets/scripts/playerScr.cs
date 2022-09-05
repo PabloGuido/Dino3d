@@ -91,7 +91,7 @@ public class playerScr : MonoBehaviour
             MovePlayer();
         }
         animator.enabled = false; // cancela la animación cuando el player perdió.
-        if (datos.restart_game && Input.GetKeyDown(KeyCode.Space))
+        if (datos.restart_game && Input.GetKeyDown(KeyCode.Space) || datos.restart_game && Input.GetKeyDown(KeyCode.UpArrow) )
         {
             Debug.Log("Restart game");
             Restart_Game();
