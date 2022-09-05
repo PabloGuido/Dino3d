@@ -21,7 +21,6 @@ public class Piso : MonoBehaviour
         objetos.Add(piso01);
         objetos.Add(piso02);
 
-
     }
 
     // Update is called once per frame
