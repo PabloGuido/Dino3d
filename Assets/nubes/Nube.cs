@@ -6,6 +6,7 @@ public class Nube : MonoBehaviour
 {
     public void Destruir_nube()
     {
+        Debug.Log("Destroy Nube.");
         Destroy(gameObject); 
     }
 }
