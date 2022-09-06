@@ -68,6 +68,10 @@ public class playerScr : MonoBehaviour
                 gravity = -120f;
                 velocity = Mathf.Sqrt(-0f * (gravity * gravityScale));
             }
+            if (cc.isGrounded && Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                // animator.runtimeAnimatorController = "dino_low_0";
+            }
             velocity += gravity * gravityScale * Time.deltaTime;
             MovePlayer();
             if (cc.isGrounded && !animator.enabled)
