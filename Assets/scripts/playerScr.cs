@@ -59,7 +59,13 @@ public class playerScr : MonoBehaviour
     {
         if(!datos.game_over)
         {
-            if (cc.isGrounded && Input.GetKeyDown(KeyCode.Space) || cc.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
+            if (cc.isGrounded && Input.GetKey(KeyCode.DownArrow))
+            {
+                animator.Play("dino_low");
+                // Acá debería desactivar el collider de la cabeza
+                return;
+            }
+            if (cc.isGrounded && Input.GetKey(KeyCode.Space) || cc.isGrounded && Input.GetKey(KeyCode.UpArrow))
             {
                 salto_player();
             }
@@ -68,16 +74,17 @@ public class playerScr : MonoBehaviour
                 gravity = -120f;
                 velocity = Mathf.Sqrt(-0f * (gravity * gravityScale));
             }
-            if (cc.isGrounded && Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                // animator.runtimeAnimatorController = "dino_low_0";
-            }
+
+
             velocity += gravity * gravityScale * Time.deltaTime;
             MovePlayer();
             if (cc.isGrounded && !animator.enabled)
             {
                 animator.enabled = true;
+                
             }
+            animator.Play("dino_run_anim");
+            // Volver a activar el collider de la cabeza
             return;
         }
 
