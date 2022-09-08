@@ -18,6 +18,7 @@ public class playerColisionScr : MonoBehaviour
                 animator = collisionInfo.transform.parent.GetChild(0).GetComponent<Animator>();
                 animator.enabled = false;
             }
+            gameObject.GetComponent<playerScr>().dino_over_sprite();
             Debug.Log("~~~ Game Over ~~~");
             
         }

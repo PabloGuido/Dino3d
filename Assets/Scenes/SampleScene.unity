@@ -518,6 +518,8 @@ MonoBehaviour:
   gravity: -20
   gravityScale: 3
   jumpHeight: 4
+  dino_idle: {fileID: 21300000, guid: f3862bcfb1dd35e45a54f47bc0ee6f52, type: 3}
+  dino_over: {fileID: 21300000, guid: 57c81e63bc44b1347bb4c49580b14c0a, type: 3}
   datos: {fileID: 1214400471}
 --- !u!65 &1119654524
 BoxCollider:

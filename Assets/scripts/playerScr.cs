@@ -25,6 +25,10 @@ public class playerScr : MonoBehaviour
     // public static event ClickAction OnClicked;   
     public static event Evento_restart Restart_Game;
 
+    // Idle & over sprite
+    public Sprite dino_idle;
+    public Sprite dino_over;
+
     // 
     void OnEnable()
     {
@@ -49,7 +53,6 @@ public class playerScr : MonoBehaviour
         mi_sprite_idle = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
 
         // Debug.Log(sprite_idle.sprite);
-        
         // Debug.Log(anim);
         
     }
@@ -133,8 +136,14 @@ public class playerScr : MonoBehaviour
     void restart_player()
     {
         sprite_idle.enabled = false;
+        sprite_idle.sprite = dino_idle;
         gameObject.transform.position = posicion_inicial;
         sprite_idle.enabled = true;
         Debug.Log("restart_player");
+    }
+
+    public void dino_over_sprite()
+    {
+        sprite_idle.sprite = dino_over;
     }
 }
