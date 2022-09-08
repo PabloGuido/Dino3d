@@ -12,7 +12,7 @@ public class pisoInstanciador : MonoBehaviour
     Transform mi_obstaculo_child; // Nombre para referenciar al obstaculo child y acceder a su script para ejecutar Destroy();.
     private bool hay_un_obstaculo = false; // Variable que sirve para crear el primer obstáculo.
     List<float> offset_obstaculos = new List<float>{1f,1f}; // Este offset es para poner los obstáculos chicos o grandes sobre el piso. Los primers son los grandes los segundos los chicos.
-    List<float> offset_obstaculos_ave = new List<float>{1f,1.9f,3.75f}; // El offset para la altura de las aves.
+    List<float> offset_obstaculos_ave = new List<float>{1f,2.1f,3.75f}; // El offset para la altura de las aves.
     GameObject miPrefab; // La variable del prefab.
     Vector3 posicion_inicial;
 

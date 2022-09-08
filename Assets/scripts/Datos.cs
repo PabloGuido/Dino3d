@@ -27,8 +27,8 @@ public class Datos : MonoBehaviour
     public void nuevo_random_ave()
     {
         cuenta_ave = 0;
-        random_ave = Random.Range(7, 12);
-        // random_ave = Random.Range(0, 5);
+        // random_ave = Random.Range(7, 12);
+        random_ave = Random.Range(0, 2);
     }
     void subscripccion()
     {

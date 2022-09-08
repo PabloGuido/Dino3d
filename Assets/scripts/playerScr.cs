@@ -29,6 +29,9 @@ public class playerScr : MonoBehaviour
     public Sprite dino_idle;
     public Sprite dino_over;
 
+    // collider de la cabeza
+    Collider collider_cabeza;
+
     // 
     void OnEnable()
     {
@@ -51,6 +54,8 @@ public class playerScr : MonoBehaviour
 
         sprite_idle = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
         mi_sprite_idle = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+        collider_cabeza = gameObject.GetComponent<BoxCollider>();
+        
 
         // Debug.Log(sprite_idle.sprite);
         // Debug.Log(anim);
@@ -64,6 +69,7 @@ public class playerScr : MonoBehaviour
         {
             if (cc.isGrounded && Input.GetKey(KeyCode.DownArrow))
             {
+                collider_cabeza.enabled = false;
                 animator.Play("dino_low");
                 // Acá debería desactivar el collider de la cabeza
                 return;
@@ -87,6 +93,7 @@ public class playerScr : MonoBehaviour
                 
             }
             animator.Play("dino_run_anim");
+            collider_cabeza.enabled = true;
             // Volver a activar el collider de la cabeza
             return;
         }
