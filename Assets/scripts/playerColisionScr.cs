@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class playerColisionScr : MonoBehaviour
 {
-    public playerScr objectWithScript;
     public Datos datos;
     
     public bool isGrounded = true;
     Animator animator;
     void OnTriggerEnter(Collider collisionInfo)
     {
+        if (collisionInfo.tag == "piso")
+        {
+            isGrounded = true;
+            // Debug.Log("piso detector");
+        }
         if (collisionInfo.tag == "obstaculo")
         {
             datos.game_over = true;
@@ -21,6 +25,20 @@ public class playerColisionScr : MonoBehaviour
             gameObject.GetComponent<playerScr>().dino_over_sprite();
             Debug.Log("~~~ Game Over ~~~");
             
+        }
+    }
+    void OnTriggerStay(Collider collisionInfo)
+    {
+        if (collisionInfo.tag == "piso")
+        {
+            isGrounded = true;
+        }
+    }
+    void OnTriggerExit(Collider collisionInfo)
+    {
+        if (collisionInfo.tag == "piso")
+        {
+            isGrounded = false;
         }
     }
 

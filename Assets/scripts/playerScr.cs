@@ -5,7 +5,8 @@ using UnityEngine;
 public class playerScr : MonoBehaviour
 {
     // [HideInInspector][SerializeField] public float numero;
-    public CharacterController cc;
+    public CharacterController cc; // Se usa para las animaciones y para el cc.Move que mueve al player.
+    public playerColisionScr cx; // Se usa para el game over
 
     public float gravity;
     public float gravityScale;
@@ -55,11 +56,7 @@ public class playerScr : MonoBehaviour
         sprite_idle = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
         mi_sprite_idle = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
         collider_cabeza = gameObject.GetComponent<BoxCollider>();
-        
-
-        // Debug.Log(sprite_idle.sprite);
-        // Debug.Log(anim);
-        
+           
     }
 
     // Update is called once per frame
@@ -71,30 +68,27 @@ public class playerScr : MonoBehaviour
             {
                 collider_cabeza.enabled = false;
                 animator.Play("dino_low");
-                // Acá debería desactivar el collider de la cabeza
                 return;
             }
-            if (cc.isGrounded && Input.GetKey(KeyCode.Space) || cc.isGrounded && Input.GetKey(KeyCode.UpArrow))
+            if (cx.isGrounded && Input.GetKey(KeyCode.Space) || cx.isGrounded && Input.GetKey(KeyCode.UpArrow))
             {
                 salto_player();
             }
-            if (!cc.isGrounded && Input.GetKeyDown(KeyCode.DownArrow))
+            if (!cx.isGrounded && Input.GetKeyDown(KeyCode.DownArrow))
             {
                 gravity = -120f;
                 velocity = Mathf.Sqrt(-0f * (gravity * gravityScale));
             }
 
-
             velocity += gravity * gravityScale * Time.deltaTime;
             MovePlayer();
-            if (cc.isGrounded && !animator.enabled)
+
+            if (cc.isGrounded)
             {
-                animator.enabled = true;
-                
+                animator.enabled = true;  
+                animator.Play("dino_run_anim");      
             }
-            animator.Play("dino_run_anim");
             collider_cabeza.enabled = true;
-            // Volver a activar el collider de la cabeza
             return;
         }
 
@@ -122,7 +116,6 @@ public class playerScr : MonoBehaviour
     void MovePlayer()
     {
         cc.Move(new Vector3(0, velocity, 0) * Time.deltaTime);
-
     }
     void salto_player()
     {
@@ -134,10 +127,8 @@ public class playerScr : MonoBehaviour
 
     void comenzar_el_juego()
     {
-
         datos.game_over = false;
-        datos.primer_salto = false;
-        
+        datos.primer_salto = false;        
     }
 
     void restart_player()

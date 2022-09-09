@@ -515,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cc: {fileID: 1119654526}
+  cx: {fileID: 1119654529}
   gravity: -20
   gravityScale: 3
   jumpHeight: 4
@@ -579,7 +580,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.41
   m_Center: {x: -0.24, y: -0.62, z: 0}
 --- !u!114 &1119654529
 MonoBehaviour:
@@ -593,7 +594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bc1c730355cc84b801c299cbb9b4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectWithScript: {fileID: 1119654523}
   datos: {fileID: 1214400471}
   isGrounded: 1
 --- !u!1 &1214400470
