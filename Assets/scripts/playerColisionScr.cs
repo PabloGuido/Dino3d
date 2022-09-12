@@ -6,6 +6,7 @@ public class playerColisionScr : MonoBehaviour
     
     public bool isGrounded = true;
     Animator animator;
+    public Ui_game ui_game;
     void OnTriggerEnter(Collider collisionInfo)
     {
         if (collisionInfo.tag == "piso")
@@ -23,6 +24,11 @@ public class playerColisionScr : MonoBehaviour
                 animator.enabled = false;
             }
             gameObject.GetComponent<playerScr>().dino_over_sprite();
+            if (datos.score >= datos.hi_score)
+            {
+                datos.hi_score = datos.score;
+                ui_game.update_hi_score();    
+            }    
             Debug.Log("~~~ Game Over ~~~");
             
         }

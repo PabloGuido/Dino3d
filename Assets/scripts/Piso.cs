@@ -15,6 +15,15 @@ public class Piso : MonoBehaviour
     public Datos datos;
     public Ui_game ui_game;
     int cuenta_score = 0;
+
+    void OnEnable()
+    {
+        playerScr.Restart_Game += restart_score;
+    }
+    void OnDisable()
+    {
+        playerScr.Restart_Game -= restart_score;
+    }
     void Start()
     {
         miSOScript = (miSO)ScriptableObject.CreateInstance(typeof(miSO));
@@ -71,5 +80,9 @@ public class Piso : MonoBehaviour
             int score_nueva_var = datos.score;
             ui_game.update_score(score_nueva_var.ToString());
         }
+    }
+    void restart_score()
+    {
+        datos.score = 0;
     }
 }

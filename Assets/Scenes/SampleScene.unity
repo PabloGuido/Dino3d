@@ -664,6 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datos: {fileID: 1214400471}
   isGrounded: 1
+  ui_game: {fileID: 1543187075}
 --- !u!1 &1158551994
 GameObject:
   m_ObjectHideFlags: 0
