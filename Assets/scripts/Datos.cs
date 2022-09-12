@@ -11,6 +11,9 @@ public class Datos : MonoBehaviour
     // Cuenta para crear aves
     public int random_ave;
     public int cuenta_ave;
+    // Score
+    public int score = 0;
+    public int hi_score = 0;
     void OnEnable()
     {
         playerScr.Restart_Game += subscripccion;

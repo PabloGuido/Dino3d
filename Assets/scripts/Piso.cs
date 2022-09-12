@@ -11,7 +11,10 @@ public class Piso : MonoBehaviour
     GameObject piso01;
     GameObject piso02;
     float velocidad = -12.5f;
+    // Score
     public Datos datos;
+    public Ui_game ui_game;
+    int cuenta_score = 0;
     void Start()
     {
         miSOScript = (miSO)ScriptableObject.CreateInstance(typeof(miSO));
@@ -20,7 +23,7 @@ public class Piso : MonoBehaviour
 
         objetos.Add(piso01);
         objetos.Add(piso02);
-
+        // Debug.Log(miSOScript.score);
     }
 
     // Update is called once per frame
@@ -50,6 +53,23 @@ public class Piso : MonoBehaviour
                 obj.transform.Translate(vec * Time.deltaTime, Space.World);
                 // Antes estaba usando solo el transform y moviendo pero se cambió a Translate. 
             }
+            sumar_score();
+        }
+    }
+
+    void sumar_score()
+    {
+        cuenta_score += 1;
+        if (cuenta_score >= 15)
+        {
+            datos.score += 1;
+            if (datos.score >= 99999)
+            {
+                datos.score = 0;
+            }
+            cuenta_score = 0;
+            int score_nueva_var = datos.score;
+            ui_game.update_score(score_nueva_var.ToString());
         }
     }
 }
