@@ -10,7 +10,8 @@ public class Piso : MonoBehaviour
 
     GameObject piso01;
     GameObject piso02;
-    float velocidad = -12.5f;
+    float velocidad_inicial = -15f;
+    float velocidad;
     // Score
     public Datos datos;
     public Ui_game ui_game;
@@ -27,6 +28,7 @@ public class Piso : MonoBehaviour
     }
     void Start()
     {
+        velocidad = velocidad_inicial;
         miSOScript = (miSO)ScriptableObject.CreateInstance(typeof(miSO));
         piso01 = GameObject.Find("piso01");
         piso02 = GameObject.Find("piso02");
@@ -86,11 +88,18 @@ public class Piso : MonoBehaviour
             {
                 ui_game.invocar_blink();
                 cuenta_blink = 0;
+                if (velocidad >= -25f)
+                {
+                    velocidad += -1.5f;
+                    Debug.Log(velocidad);
+                }
+                
             }
         }
     }
     void restart_score()
     {
+        velocidad = velocidad_inicial;
         datos.score = 0;
         cuenta_blink = 0;
         cuenta_score = 0;
