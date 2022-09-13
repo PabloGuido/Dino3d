@@ -15,6 +15,7 @@ public class Piso : MonoBehaviour
     public Datos datos;
     public Ui_game ui_game;
     int cuenta_score = 0;
+    int cuenta_blink = 0;
 
     void OnEnable()
     {
@@ -33,6 +34,7 @@ public class Piso : MonoBehaviour
         objetos.Add(piso01);
         objetos.Add(piso02);
         // Debug.Log(miSOScript.score);
+
     }
 
     // Update is called once per frame
@@ -72,6 +74,7 @@ public class Piso : MonoBehaviour
         if (cuenta_score >= 15)
         {
             datos.score += 1;
+            cuenta_blink +=1;
             if (datos.score >= 99999)
             {
                 datos.score = 0;
@@ -79,10 +82,19 @@ public class Piso : MonoBehaviour
             cuenta_score = 0;
             int score_nueva_var = datos.score;
             ui_game.update_score(score_nueva_var.ToString());
+            if (cuenta_blink >= 100)
+            {
+                ui_game.invocar_blink();
+                cuenta_blink = 0;
+            }
         }
     }
     void restart_score()
     {
         datos.score = 0;
+        cuenta_blink = 0;
+        cuenta_score = 0;
     }
+
+
 }
