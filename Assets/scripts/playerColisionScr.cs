@@ -29,6 +29,7 @@ public class playerColisionScr : MonoBehaviour
                 datos.hi_score = datos.score;
                 ui_game.update_hi_score();    
             }    
+            ui_game.game_over_text();
             Debug.Log("~~~ Game Over ~~~");
             
         }
