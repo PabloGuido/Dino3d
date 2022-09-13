@@ -33,6 +33,9 @@ public class playerScr : MonoBehaviour
     // collider de la cabeza
     Collider collider_cabeza;
 
+    //
+    public Ui_game ui_game;
+
     // 
     void OnEnable()
     {
@@ -96,6 +99,7 @@ public class playerScr : MonoBehaviour
         {
             Debug.Log("Primer salto.");
             primer_salto = false;
+            ui_game.remover_start();
             salto_player();
             Invoke("comenzar_el_juego", 0.5f); // Cambia el estado de game over y primer salto en datos.
 
