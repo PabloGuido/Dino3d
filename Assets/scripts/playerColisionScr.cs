@@ -40,7 +40,7 @@ public class playerColisionScr : MonoBehaviour
             ui_game.game_over_text();
             audioData.clip = game_over_sound;  
             audioData.Play();
-            Debug.Log("~~~ Game Over ~~~");
+            // Debug.Log("~~~ Game Over ~~~");
             
         }
     }

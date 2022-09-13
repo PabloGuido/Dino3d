@@ -101,7 +101,7 @@ public class playerScr : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && primer_salto || Input.GetKeyDown(KeyCode.UpArrow) && primer_salto)
         {
-            Debug.Log("Primer salto.");
+            // Debug.Log("Primer salto.");
             primer_salto = false;
             ui_game.remover_start();
             salto_player();
@@ -116,7 +116,7 @@ public class playerScr : MonoBehaviour
         animator.enabled = false; // cancela la animación cuando el player perdió.
         if (datos.restart_game && Input.GetKeyDown(KeyCode.Space) || datos.restart_game && Input.GetKeyDown(KeyCode.UpArrow) )
         {
-            Debug.Log("Restart game");
+            // Debug.Log("Restart game");
             audioData.clip = salto;
             Restart_Game();
         }
@@ -147,7 +147,7 @@ public class playerScr : MonoBehaviour
         sprite_idle.sprite = dino_idle;
         gameObject.transform.position = posicion_inicial;
         sprite_idle.enabled = true;
-        Debug.Log("restart_player");
+        // Debug.Log("restart_player");
     }
 
     public void dino_over_sprite()

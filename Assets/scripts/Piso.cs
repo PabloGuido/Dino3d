@@ -91,7 +91,7 @@ public class Piso : MonoBehaviour
                 if (velocidad >= -25f)
                 {
                     velocidad += -1.5f;
-                    Debug.Log(velocidad);
+                    // Debug.Log(velocidad);
                 }
                 
             }

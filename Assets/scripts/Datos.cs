@@ -37,6 +37,6 @@ public class Datos : MonoBehaviour
     {
         restart_game = false;
         game_over = false;
-        Debug.Log("Restaurando Datos.");
+        // Debug.Log("Restaurando Datos.");
     }
 }

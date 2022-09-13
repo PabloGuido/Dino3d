@@ -63,7 +63,11 @@ public class Ui_game : MonoBehaviour
         blink = false;
         string score_nueva_var = datos.score.ToString();
         score.text = ceros.Remove(0, score_nueva_var.Length) + score_nueva_var;
-        hi_score.text = "HI " + score.text;
+        if (datos.score >= datos.hi_score)
+        {
+            datos.hi_score = datos.score;
+            update_hi_score();    
+        }    
     }
 
     public void restart_game()
