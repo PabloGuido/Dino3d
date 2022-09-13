@@ -7,6 +7,14 @@ public class playerColisionScr : MonoBehaviour
     public bool isGrounded = true;
     Animator animator;
     public Ui_game ui_game;
+    // sonido
+    public AudioClip game_over_sound;
+    AudioSource audioData;
+
+    void Start()
+    {
+        audioData = GetComponent<AudioSource>();
+    }
     void OnTriggerEnter(Collider collisionInfo)
     {
         if (collisionInfo.tag == "piso")
@@ -30,6 +38,8 @@ public class playerColisionScr : MonoBehaviour
                 ui_game.update_hi_score();    
             }    
             ui_game.game_over_text();
+            audioData.clip = game_over_sound;  
+            audioData.Play();
             Debug.Log("~~~ Game Over ~~~");
             
         }
@@ -48,6 +58,7 @@ public class playerColisionScr : MonoBehaviour
             isGrounded = false;
         }
     }
+
 
     void cambiar_estado_de_restart()
     {

@@ -29,13 +29,16 @@ public class playerScr : MonoBehaviour
     // Idle & over sprite
     public Sprite dino_idle;
     public Sprite dino_over;
+    
 
     // collider de la cabeza
     Collider collider_cabeza;
 
     //
     public Ui_game ui_game;
-
+    // sonidos
+    public AudioClip salto;
+    AudioSource audioData;
     // 
     void OnEnable()
     {
@@ -59,7 +62,8 @@ public class playerScr : MonoBehaviour
         sprite_idle = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
         mi_sprite_idle = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
         collider_cabeza = gameObject.GetComponent<BoxCollider>();
-           
+        audioData = GetComponent<AudioSource>();
+        audioData.clip = salto;        
     }
 
     // Update is called once per frame
@@ -113,6 +117,7 @@ public class playerScr : MonoBehaviour
         if (datos.restart_game && Input.GetKeyDown(KeyCode.Space) || datos.restart_game && Input.GetKeyDown(KeyCode.UpArrow) )
         {
             Debug.Log("Restart game");
+            audioData.clip = salto;
             Restart_Game();
         }
     }
@@ -127,6 +132,7 @@ public class playerScr : MonoBehaviour
         velocity = Mathf.Sqrt(jumpHeight * -2f * (gravity * gravityScale));
         animator.enabled = false;
         sprite_idle.sprite = mi_sprite_idle;
+        audioData.Play();
     }
 
     void comenzar_el_juego()
