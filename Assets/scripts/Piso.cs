@@ -15,7 +15,7 @@ public class Piso : MonoBehaviour
     // Score
     public Datos datos;
     public Ui_game ui_game;
-    int cuenta_score = 0;
+    float cuenta_score = 0;
     int cuenta_blink = 0;
 
     void OnEnable()
@@ -63,17 +63,18 @@ public class Piso : MonoBehaviour
                     }
                 }
                 var vec = new Vector3(velocidad,0,0);
-                obj.transform.Translate(vec * Time.deltaTime, Space.World);
+                obj.transform.Translate(vec * Time.deltaTime);
                 // Antes estaba usando solo el transform y moviendo pero se cambió a Translate. 
             }
-            sumar_score();
+            sumar_score(Time.deltaTime);
         }
     }
 
-    void sumar_score()
+    void sumar_score(float tiempo_delta)
     {
-        cuenta_score += 1;
-        if (cuenta_score >= 15)
+        cuenta_score += tiempo_delta;
+        // Debug.Log(cuenta_score);
+        if (cuenta_score >= 0.085f)
         {
             datos.score += 1;
             cuenta_blink +=1;
